@@ -1,0 +1,35 @@
+# ---------- Python ----------
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# ---------- 编辑器 / 系统 ----------
+.DS_Store
+Thumbs.db
+*.swp
+.idea/
+.vscode/
+*.log
+
+# ---------- 本地财务数据（含真实账目，切勿提交） ----------
+data/
+local/
+.finance/
+.finance_data/
+*.local.csv
+*.local.json
+# 仓库内测试产生的数据目录
+tmp_finance/
+tmp.*/
+
+# ---------- 环境变量 ----------
+.env
+.env.*
+!.env.example
+
+# ---------- 测试 / 覆盖率产物 ----------
+.pytest_cache/
+.coverage
+coverage/

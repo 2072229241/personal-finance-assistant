@@ -1,0 +1,44 @@
+[
+  {
+    "date": "2026-10-01",
+    "account": "招行储蓄卡",
+    "currency": "CNY",
+    "amount": 12000,
+    "category": "收入",
+    "merchant": "公司",
+    "note": "10月工资"
+  },
+  {
+    "date": "2026-10-03",
+    "account": "支付宝",
+    "currency": "CNY",
+    "amount": -38.5,
+    "merchant": "星巴克",
+    "note": "拿铁"
+  },
+  {
+    "date": "2026-10-05",
+    "account": "招行储蓄卡",
+    "currency": "CNY",
+    "amount": -2500,
+    "category": "居住",
+    "merchant": "房东",
+    "note": "10月房租"
+  },
+  {
+    "date": "2026-10-08",
+    "account": "美元信用卡",
+    "currency": "USD",
+    "amount": -50,
+    "merchant": "Amazon",
+    "note": "海淘图书"
+  },
+  {
+    "date": "2026-10-12",
+    "account": "支付宝",
+    "currency": "CNY",
+    "amount": -128,
+    "merchant": "美团外卖",
+    "note": "晚餐"
+  }
+]
