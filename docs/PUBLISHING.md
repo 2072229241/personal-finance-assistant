@@ -112,3 +112,25 @@ git push origin v1.1.0
 | `Updates were rejected because the remote contains work` | 先 `git pull --rebase origin main` 再 `git push` |
 | 终端里把 token 当成命令回显出来 | token 粘错了位置（见上文 HTTPS 提示）。吊销旧 token，用新 token 在 Password 提示处粘贴 |
 | 推完没生效、反复要求输入凭据 | 钥匙串存了旧密码，先 `printf "protocol=https\nhost=github.com\n" \| git credential-osxkeychain erase` 再推 |
+| `Recv failure: Operation timed out` | 终端的 git 不会自动跟随系统代理。用 `scutil --proxy` 查出端口，再配给 git（见下） |
+
+### 让 git 走系统代理
+
+浏览器能打开 GitHub、终端却超时，通常是这个原因：系统代理是开着的，但 git 不读它。
+
+```bash
+scutil --proxy                       # 查看 HTTPSPort / HTTPSProxy，如 127.0.0.1:12334
+git config http.proxy  http://127.0.0.1:12334     # 只对当前仓库生效
+git config https.proxy http://127.0.0.1:12334
+git config --global http.proxy  http://127.0.0.1:12334   # 想对所有仓库生效就加 --global
+git config --global https.proxy http://127.0.0.1:12334
+```
+
+更换代理软件后端口会变，需要同步更新；不用代理时删掉：
+
+```bash
+git config --global --unset http.proxy
+git config --global --unset https.proxy
+```
+
+若 HTTP 代理不通，可改用 SOCKS（同一端口通常也支持）：`git config http.proxy socks5://127.0.0.1:12334`。
