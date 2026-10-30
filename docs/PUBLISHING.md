@@ -54,6 +54,20 @@ git remote add origin https://github.com/2072229241/personal-finance-assistant.g
 git push -u origin main
 ```
 
+token 在 https://github.com/settings/tokens 生成（Tokens classic），公开仓库**只勾 `repo` 一项**即可
+（其子项 `public_repo` 提供公开仓库写入权限）。
+
+> ⚠️ **token 要粘在 git 的 Password 提示处，不要直接粘到命令行。**
+> 直接粘到命令行会被 shell 当成命令执行（回显出来、且进 history），token 当场泄露，只能吊销重发。
+> 正确顺序是先看到 `Username for 'https://github.com':` 再输入用户名，
+> 出现 `Password for 'https://2072229241@github.com':` 时粘贴 token——**此处不回显，什么都不显示才是正常的**。
+
+```bash
+# 若不慎把 token 粘进了命令行：先吊销旧 token，再清理 history
+# https://github.com/settings/tokens → Delete
+LC_ALL=C sed -i '' '/ghp_/d' ~/.zsh_history      # 关闭该终端窗口后执行
+```
+
 > 若提示 `gh auth login` 更省事：安装 [GitHub CLI](https://cli.github.com/) 后执行 `gh auth login`，
 > 然后 `gh repo create personal-finance-assistant --public --source=. --push` 可一步完成创建与推送。
 
@@ -96,3 +110,5 @@ git push origin v1.1.0
 | `Support for password authentication was removed` | 需改用 Personal Access Token（Settings → Developer settings → Tokens → 勾选 `repo`） |
 | `refusing to merge unrelated histories` | 远端已有 README/LICENSE。先 `git pull origin main --allow-unrelated-histories` 再推送 |
 | `Updates were rejected because the remote contains work` | 先 `git pull --rebase origin main` 再 `git push` |
+| 终端里把 token 当成命令回显出来 | token 粘错了位置（见上文 HTTPS 提示）。吊销旧 token，用新 token 在 Password 提示处粘贴 |
+| 推完没生效、反复要求输入凭据 | 钥匙串存了旧密码，先 `printf "protocol=https\nhost=github.com\n" \| git credential-osxkeychain erase` 再推 |
