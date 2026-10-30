@@ -13,9 +13,9 @@ make check && make test        # 语法检查 + 冒烟测试必须全绿
 ```
 
 - [x] `README.md` / `docs/PUBLISHING.md` 中的仓库地址已替换为 `2072229241`
-- [ ] `LICENSE` 中的 `Copyright (c) 2026 personal-finance-assistant contributors` 已替换为你的名字/组织
-- [ ] 仓库内不含真实账目数据（账本默认在 `~/.personal-finance-assistant/`，不在仓库内）
-- [ ] 已确认无密钥、无内链、无个人绝对路径
+- [x] `LICENSE` 版权署名已改为 `2072229241`
+- [x] 仓库内不含真实账目数据（账本默认在 `~/.personal-finance-assistant/`，不在仓库内）
+- [x] 已确认无密钥、无内链、无个人绝对路径
 
 自查敏感信息（应无输出）：
 

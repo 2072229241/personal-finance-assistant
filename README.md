@@ -469,8 +469,6 @@ $ENGINE add --csv ./wechat_bill.csv
 
 本项目基于 **MIT License** 开源，详见 [LICENSE](./LICENSE)。你可以自由使用、修改、分发，包括商用，仅需保留版权声明。
 
-> 发布前请把 `LICENSE` 中的 `Copyright (c) 2026 personal-finance-assistant contributors` 替换为你的名字或组织名。
-
 ### 免责声明
 
 本项目是**个人记账与规划工具**，不是持牌金融服务：
